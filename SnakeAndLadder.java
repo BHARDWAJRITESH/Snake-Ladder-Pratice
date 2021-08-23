@@ -2,39 +2,90 @@ import java.util.Random;
 public class SnakeAndLadder {
     public static void main(String[] args) {
         System.out.println("Welcome To Snake And Ladder Simulator");
-        int position= 0;
-        int diceRollNo=0;
-        while (position != 100) {
-        diceRollNo++;
+        int person1_pos=0 , person2_pos = 0 , flag=0 ;
+        int diceNo=0;
+        while (person1_pos!=20 &&  person2_pos!=20) {
+        diceNo++;
         int diceRoll=1+(int)Math.floor(Math.random()*10)%6;
-        System.out.println("Player Rolls:" +diceRoll);
+        System.out.println("Dice Rolls:" +diceRoll);
+        if(flag == 0) {
         int checkOption=1+(int)Math.floor(Math.random()*10)%3;
         if (checkOption==0) {
             System.out.println("No Play");
         }
         else if(checkOption==1){
+         flag = 1;
             System.out.println("Ladder Comes");
-              if(position+diceRoll<=100)
+              if(person1_pos+diceRoll<=20)
                 {
-                    position+=diceRoll;
+                    person1_pos+=diceRoll;
                 }
-                else if(position+diceRoll>100)
+                else if(person1_pos+diceRoll>20)
                 {
                     continue;
                 }
            }
         else{
             System.out.println("Snake Comes");
-              if ((position - diceRoll) < 0) {
-                    position = 0;
+              if ((person1_pos-diceRoll) < 0) {
+                    person1_pos = 0;
              } else{
-            position-=diceRoll;
+            person1_pos-=diceRoll;
         }
      }
-        System.out.println(diceRollNo);
-        System.out.println("Player Position After Dice Roll "+ position);
+        System.out.println(diceNo);
+        System.out.println("Player person1_position After Dice Roll "+ person1_pos +" "+ person2_pos);
+        if(person1_pos==20) {
+             System.out.println("persom one win first");
+}
 }
 
-        System.out.println("Number Of Dice Roll To Win " + diceRollNo);
-}
+   else {
+
+                int checkOption=(int)Math.floor(Math.random()*10)%3;
+                if (checkOption == 0) {
+                    System.out.println("No Play");
+                }
+                else if (checkOption == 1) {
+                    flag = 0;
+                    System.out.println("Ladder Comes");
+                    if( person2_pos+diceRoll<=20)
+                    {
+                        person2_pos+=diceRoll;
+
+                    }
+                    else if( person2_pos+diceRoll>20)
+                    {
+                        continue;
+                    }
+                }
+                else {
+                    System.out.println("Snake Comes");
+                    if(( person2_pos-diceRoll)<0)
+                    {
+                        person2_pos=0;
+                    }
+                    else
+                    {
+                        person2_pos-=diceRoll;
+                    }
+                }
+                System.out.println(diceNo);
+                System.out.println("Player Position After Dice Roll "+ person1_pos +" "+ person2_pos);
+                if( person2_pos==20) {
+                    System.out.println("person two win first");
+                }
+
+            }
+            if (flag == 0) {
+                flag=1;
+            }else {
+                flag = 0;
+            }
+        }
+
+        System.out.println("Number Of Dice Roll To Win " + diceNo);
+
+    }
+
 }
