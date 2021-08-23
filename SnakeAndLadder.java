@@ -12,12 +12,8 @@ public class SnakeAndLadder {
         }
         else if(checkOption==1){
             System.out.println("Ladder Comes");
-           if (position + diceRoll <= 100) {
-             position+=diceRoll;
-           } else if (position + diceRoll > 100) {
-                    continue;
-        }
-       } else{
+           }
+        else{
             System.out.println("Snake Comes");
               if ((position - diceRoll) < 0) {
                     position = 0;
