@@ -3,6 +3,7 @@ public class SnakeAndLadder {
     public static void main(String[] args) {
         System.out.println("Welcome To Snake And Ladder Simulator");
         int position= 0;
+        while (position != 100) {
         int diceRoll=1+(int)Math.floor(Math.random()*10)%6;
         System.out.println("Player Rolls:" +diceRoll);
         int checkOption=1+(int)Math.floor(Math.random()*10)%3;
@@ -11,12 +12,19 @@ public class SnakeAndLadder {
         }
         else if(checkOption==1){
             System.out.println("Ladder Comes");
-            position+=diceRoll;
+           if (position + diceRoll <= 100) {
+             position+=diceRoll;
+           } else if (position + diceRoll > 100) {
+                    continue;
         }
-        else{
+       } else{
             System.out.println("Snake Comes");
+              if ((position - diceRoll) < 0) {
+                    position = 0;
+             } else{
             position-=diceRoll;
         }
-
-}
+     }
+   }
+ }
 }
