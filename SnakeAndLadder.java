@@ -6,7 +6,7 @@ public class SnakeAndLadder {
         while (position != 100) {
         int diceRoll=1+(int)Math.floor(Math.random()*10)%6;
         System.out.println("Player Rolls:" +diceRoll);
-        int checkOption=1+(int)Math.floor(Math.random()*10)%3;
+        int checkOption=(int)Math.floor(Math.random()*10)%3;
         if (checkOption==0) {
             System.out.println("No Play");
         }
